@@ -2,13 +2,10 @@
 
 import { useState } from 'react';
 import { 
-  Calendar as CalendarIcon, 
   ChevronLeft, 
   ChevronRight,
   Filter,
-  ArrowLeft,
-  User,
-  Clock
+  ArrowLeft
 } from 'lucide-react';
 
 interface Absence {

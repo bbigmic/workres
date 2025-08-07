@@ -87,7 +87,7 @@ export default function Home() {
                 <span className="text-sm text-gray-600">Rola:</span>
                 <select
                   value={userRole}
-                  onChange={(e) => setUserRole(e.target.value as any)}
+                  onChange={(e) => setUserRole(e.target.value as 'ADMIN' | 'HR' | 'MANAGER' | 'EMPLOYEE')}
                   className="text-sm border border-gray-300 rounded-md px-2 py-1 text-gray-900"
                 >
                   <option value="ADMIN">Admin</option>

@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { 
-  Users, 
-  Plus, 
   Search, 
   Filter, 
   Edit, 
@@ -32,7 +30,7 @@ interface Absence {
 }
 
 export default function EmployeesPage() {
-  const [employees, setEmployees] = useState<Employee[]>([
+  const [employees] = useState<Employee[]>([
     {
       id: '1',
       firstName: 'Jan',

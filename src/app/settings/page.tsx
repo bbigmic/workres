@@ -2,18 +2,14 @@
 
 import { useState } from 'react';
 import { 
-  Settings, 
   ArrowLeft,
   Users,
   Shield,
   Database,
   Bell,
   Trash2,
-  Save,
   Plus,
-  Edit,
-  X,
-  Check
+  Edit
 } from 'lucide-react';
 
 interface User {

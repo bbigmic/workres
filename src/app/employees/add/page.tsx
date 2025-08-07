@@ -5,7 +5,6 @@ import {
   UserPlus, 
   ArrowLeft,
   Save,
-  Users,
   X,
   Check
 } from 'lucide-react';
@@ -207,7 +206,7 @@ export default function AddEmployeePage() {
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Ksywka jest automatycznie generowana jako "imię + pierwsza litera nazwiska", 
+                  Ksywka jest automatycznie generowana jako &quot;imię + pierwsza litera nazwiska&quot;, 
                   ale można ją edytować na dowolną nazwę.
                 </p>
               </div>

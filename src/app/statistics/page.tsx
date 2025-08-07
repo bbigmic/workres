@@ -9,8 +9,7 @@ import {
   Clock,
   TrendingUp,
   TrendingDown,
-  Activity,
-  Filter
+  Activity
 } from 'lucide-react';
 
 interface StatisticsData {

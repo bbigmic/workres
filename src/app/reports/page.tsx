@@ -8,7 +8,6 @@ import {
   Users,
   Clock,
   ArrowLeft,
-  Filter,
   BarChart3
 } from 'lucide-react';
 
@@ -447,7 +446,7 @@ export default function ReportsPage() {
             <ul className="text-sm text-blue-800 space-y-1">
               <li>• Wybierz okres raportowania (data rozpoczęcia i zakończenia)</li>
               <li>• Opcjonalnie wybierz grupy pracowników do raportu</li>
-              <li>• Kliknij "Generuj raport" aby utworzyć raport</li>
+              <li>• Kliknij &quot;Generuj raport&quot; aby utworzyć raport</li>
               <li>• Raport zawiera szczegółowe informacje o godzinach pracy i nieobecnościach</li>
               <li>• Możesz eksportować raport do formatu Excel</li>
             </ul>

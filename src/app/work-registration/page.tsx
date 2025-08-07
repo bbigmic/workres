@@ -2,11 +2,8 @@
 
 import { useState } from 'react';
 import { 
-  Clock, 
   Calendar,
-  Users,
   Check,
-  X,
   ArrowLeft,
   Save,
   AlertTriangle
