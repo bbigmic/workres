@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  role      UserRole @default(EMPLOYEE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relacje
+  workRecords    WorkRecord[]
+  absences       Absence[]
+  managedGroups  Group[] @relation("GroupManager")
+
+  @@map("users")
+}
+
+model Employee {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  nickname    String?  // Skrót/ksywka
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relacje
+  workRecords WorkRecord[]
+  absences    Absence[]
+  groups      GroupMember[]
+
+  @@map("employees")
+}
+
+model Group {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  managerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relacje
+  manager     User?          @relation("GroupManager", fields: [managerId], references: [id])
+  members     GroupMember[]
+  workRecords WorkRecord[]
+
+  @@map("groups")
+}
+
+model GroupMember {
+  id         String   @id @default(cuid())
+  employeeId String
+  groupId    String
+  joinedAt   DateTime @default(now())
+
+  // Relacje
+  employee Employee @relation(fields: [employeeId], references: [id])
+  group    Group   @relation(fields: [groupId], references: [id])
+
+  @@unique([employeeId, groupId])
+  @@map("group_members")
+}
+
+model WorkRecord {
+  id         String   @id @default(cuid())
+  employeeId String
+  groupId    String
+  date       DateTime
+  startTime  String   // Format "HH:MM"
+  endTime    String   // Format "HH:MM"
+  hours      Float
+  createdBy  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relacje
+  employee Employee @relation(fields: [employeeId], references: [id])
+  group    Group   @relation(fields: [groupId], references: [id])
+  creator  User    @relation(fields: [createdBy], references: [id])
+
+  @@unique([employeeId, date])
+  @@map("work_records")
+}
+
+model Absence {
+  id         String      @id @default(cuid())
+  employeeId String
+  type       AbsenceTypeEnum
+  startDate  DateTime
+  endDate    DateTime
+  reason     String?
+  createdBy  String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  // Relacje
+  employee Employee @relation(fields: [employeeId], references: [id])
+  creator  User    @relation(fields: [createdBy], references: [id])
+
+  @@map("absences")
+}
+
+enum UserRole {
+  ADMIN
+  HR
+  MANAGER
+  EMPLOYEE
+}
+
+enum AbsenceTypeEnum {
+  VACATION    // Urlop
+  SICK_LEAVE  // L4
+  OTHER       // Inne
+}
