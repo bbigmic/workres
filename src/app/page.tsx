@@ -76,7 +76,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center py-3">
             <div className="flex items-center">
               <h1 className="text-xl font-semibold text-gray-900">
                 WorkRes
@@ -88,7 +88,7 @@ export default function Home() {
                 <select
                   value={userRole}
                   onChange={(e) => setUserRole(e.target.value as 'ADMIN' | 'HR' | 'MANAGER' | 'EMPLOYEE')}
-                  className="text-sm border border-gray-300 rounded-md px-2 py-1 text-gray-900"
+                  className="text-sm border border-gray-300 rounded-md px-2 py-1.5 text-gray-900"
                 >
                   <option value="ADMIN">Admin</option>
                   <option value="HR">HR</option>
@@ -96,7 +96,7 @@ export default function Home() {
                   <option value="EMPLOYEE">Pracownik</option>
                 </select>
               </div>
-              <button className="text-gray-400 hover:text-gray-600">
+              <button className="text-gray-400 hover:text-gray-600 p-1">
                 <LogOut className="h-5 w-5" />
               </button>
             </div>
