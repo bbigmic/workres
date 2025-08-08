@@ -17,6 +17,13 @@ export default function Home() {
 
   const menuItems = [
     {
+      title: 'Rejestracja czasu pracy',
+      description: 'Rejestracja godzin pracy pracowników',
+      icon: Clock,
+      href: '/work-registration',
+      roles: ['ADMIN', 'MANAGER']
+    },
+    {
       title: 'Pracownicy',
       description: 'Zarządzanie listą pracowników',
       icon: Users,
@@ -31,11 +38,11 @@ export default function Home() {
       roles: ['ADMIN', 'HR', 'MANAGER']
     },
     {
-      title: 'Rejestracja czasu pracy',
-      description: 'Rejestracja godzin pracy pracowników',
-      icon: Clock,
-      href: '/work-registration',
-      roles: ['ADMIN', 'MANAGER']
+      title: 'Statystyki',
+      description: 'Podgląd statystyk pracy',
+      icon: BarChart3,
+      href: '/statistics',
+      roles: ['ADMIN', 'HR', 'MANAGER']
     },
     {
       title: 'Raporty',
@@ -50,13 +57,6 @@ export default function Home() {
       icon: UserPlus,
       href: '/employees/add',
       roles: ['ADMIN', 'HR']
-    },
-    {
-      title: 'Statystyki',
-      description: 'Podgląd statystyk pracy',
-      icon: BarChart3,
-      href: '/statistics',
-      roles: ['ADMIN', 'HR', 'MANAGER']
     },
     {
       title: 'Ustawienia',
